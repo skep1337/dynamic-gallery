@@ -42,3 +42,15 @@ I recommend screening the **dirwatch.sh** to have it run in the background.
 ```screen sh dirwatch.sh```
 
 Now, any images you add into the **content** directory will automatically be resized, compressed, and added to the **thumbnail** directory.
+
+## Additional features
+
+If you left click an image, it will copy the url of the full image.
+
+If you right click an image, it will directly open up a new tab of the full image.
+
+#### GIF support
+
+The compress scripts already contain ffmpeg options to only include the first frame of the gif for the thumbnail.
+
+I started this project so I could self-host gifs to use on discord lol.
