@@ -22,9 +22,31 @@ Inside of your nginx config, located at ```/etc/nginx/sites-enabled/default```
 
 #### Arch
 
-Default html directory on Arch linux is at ```/usr/share/nginx/html```
+Make a directory in ```/var/www/html``` named "**images**"
 
-Modify the nginx config at ```/etc/nginx/nginx.conf``` instead.
+Execute the commands
+```
+git clone https://github.com/skep1337/dynamic-gallery.git /var/www/html/images
+cd /var/www/html/images
+chmod +x *.sh
+mkdir content
+mkdir content/thumbnails
+```
+You may need elevated permissions for some of these.
+
+Now edit the file ```/etc/nginx/nginx.conf```
+
+In the http section find the server section.
+Here change location / block to
+```
+location / {
+    root /var/www/html/images;
+    autoindex on;
+    index index.html;
+}
+```
+
+Then restart nginx with ```systemctl restart nginx```
 
 ---
 
