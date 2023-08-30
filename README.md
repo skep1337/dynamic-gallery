@@ -13,9 +13,20 @@ inotify-tools
 screen
 ```
 
+#### Ubuntu/Debian
 Make a directory in ```/var/www/html``` named "**images**" (this is where the **html**, **css** and **js** should be)
 
-Inside of your nginx config, (located at ```/etc/nginx/sites-enabled/default```)
+Inside of your nginx config, located at ```/etc/nginx/sites-enabled/default```
+
+---
+
+#### Arch
+
+Default html directory on Arch linux is at ```/usr/share/nginx/html```
+
+Modify the nginx config at ```/etc/nginx/nginx.conf``` instead.
+
+---
 
 Add the following to your "**server**" block:
 ```
