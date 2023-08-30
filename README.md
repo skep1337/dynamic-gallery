@@ -12,9 +12,11 @@ Inside of your nginx config, (located at ```/etc/nginx/sites-enabled/default```)
 Add the following to your "**server**" block:
 ```
 location /images {
-autoindex on;
+   autoindex on;
 }
 ```
+
+Then restart nginx ```systemctl restart nginx```
 
 This will allow the javascript to access all image filenames.
 
@@ -41,6 +43,8 @@ I recommend screening the **dirwatch.sh** to have it run in the background.
 
 ```screen sh dirwatch.sh```
 
+To exit, press Ctrl + a + d
+
 Now, any images you add into the **content** directory will automatically be resized, compressed, and added to the **thumbnail** directory.
 
 ## Additional features
@@ -48,6 +52,8 @@ Now, any images you add into the **content** directory will automatically be res
 If you left click an image, it will copy the url of the full image.
 
 If you right click an image, it will directly open up a new tab of the full image.
+
+Images are sorted by recently modified.
 
 #### GIF support
 
