@@ -32,13 +32,6 @@ location /images {
 
 Make a directory in ```/var/www/html``` named "**images**"
 
-Execute the commands
-```
-git clone https://github.com/skep1337/dynamic-gallery.git /var/www/html/images
-cd /var/www/html/images
-chmod +x *.sh
-mkdir -p content/thumbnails
-```
 You may need elevated permissions for some of these.
 
 Now edit the file ```/etc/nginx/nginx.conf```
@@ -61,11 +54,17 @@ The autoindex will allow the javascript to access all image filenames.
 
 ## Setup
 
-Create a directory named "**content**" inside the website directory.
-
-Within the "**content**" directory, create another named "**thumbnails**".
+Execute the commands
+```
+git clone https://github.com/skep1337/dynamic-gallery.git /var/www/html/images
+cd /var/www/html/images
+chmod +x *.sh
+mkdir -p content/thumbnails
+```
 
 Edit the variables in the **compress.sh** and **dirmonitor.sh** to where those two directories are.
+
+If you ran the commands listed, it will be ```/var/www/html/images/content``` and ```/var/www/html/images/content/thumbnails```
 
 ```
 input_directory="<directory of content>"
