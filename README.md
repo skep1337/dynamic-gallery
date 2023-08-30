@@ -13,6 +13,8 @@ inotify-tools
 screen
 ```
 
+Make a directory in ```/var/www/html``` named "**images**" (this is where the **html**, **css** and **js** should be)
+
 Inside of your nginx config, (located at ```/etc/nginx/sites-enabled/default```)
 
 Add the following to your "**server**" block:
@@ -32,7 +34,7 @@ Create a directory named "**content**" inside the website directory.
 
 Within the "**content**" directory, create another named "**thumbnails**".
 
-Edit the variables in the **compress.sh** and **dirwatch.sh** to where those two directories are.
+Edit the variables in the **compress.sh** and **dirmonitor.sh** to where those two directories are.
 
 ```
 input_directory="<directory of content>"
@@ -45,9 +47,9 @@ Run **compress.sh**. This will use ffmpeg to resize and compress any images in t
 
 ```sh compress.sh```
 
-I recommend screening the **dirwatch.sh** to have it run in the background. 
+I recommend screening the **dirmonitor.sh** to have it run in the background. 
 
-```screen sh dirwatch.sh```
+```screen sh dirmonitor.sh```
 
 To exit, press Ctrl + a + d
 
