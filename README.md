@@ -13,13 +13,15 @@ inotify-tools
 screen
 ```
 
-#### Ubuntu/Debian
+Make a directory in ```/var/www/html``` named '**images**' (this is where the **html**, **css** and **js** should be)
 
-Make a directory in ```/var/www/html``` named "**images**" (this is where the **html**, **css** and **js** should be)
+```mkdir /var/www/html/images```
+
+#### Ubuntu/Debian
 
 Inside of your nginx config, located at ```/etc/nginx/sites-enabled/default```
 
-Add the following to your "**server**" block:
+Add the following to your '**server**' block:
 ```
 location /images {
    autoindex on;
@@ -30,19 +32,22 @@ location /images {
 
 #### Arch
 
-Make a directory in ```/var/www/html``` named "**images**"
-
 You may need elevated permissions for some of these.
 
 Now edit the file ```/etc/nginx/nginx.conf```
 
-In the http section find the server section.
-Here change location / block to
+In the '**http**' section find the '**server**' section.
+Here, remove the '**location /**' block and replace with 
 ```
+root /var/www/html/;
+
+location /images {
+   autoindex on;
+   index index.html;
+}
+
 location / {
-    root /var/www/html/images;
-    autoindex on;
-    index index.html;
+   try_files $uri $uri/ =404;
 }
 ```
 
@@ -84,6 +89,8 @@ I recommend screening the **dirmonitor.sh** to have it run in the background.
 To exit, press Ctrl + a + d
 
 Now, any images you add into the **content** directory will automatically be resized, compressed, and added to the **thumbnail** directory.
+
+You can access the page by going to ```<your website>/images```
 
 ## Additional features
 
