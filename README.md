@@ -29,8 +29,7 @@ Execute the commands
 git clone https://github.com/skep1337/dynamic-gallery.git /var/www/html/images
 cd /var/www/html/images
 chmod +x *.sh
-mkdir content
-mkdir content/thumbnails
+mkdir -p content/thumbnails
 ```
 You may need elevated permissions for some of these.
 
@@ -45,8 +44,6 @@ location / {
     index index.html;
 }
 ```
-
-Then restart nginx with ```systemctl restart nginx```
 
 ---
 
