@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 98vw;
+    padding: 20px;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.gallery img:hover {
+    outline: 2px solid #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+    }
+
+    .gallery img:hover {
+        outline: 2px solid white;
+    }
+
+}
