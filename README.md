@@ -14,19 +14,10 @@ screen
 ```
 
 #### Ubuntu/Debian
+
 Make a directory in ```/var/www/html``` named "**images**" (this is where the **html**, **css** and **js** should be)
 
 Inside of your nginx config, located at ```/etc/nginx/sites-enabled/default```
-
----
-
-#### Arch
-
-Default html directory on Arch linux is at ```/usr/share/nginx/html```
-
-Modify the nginx config at ```/etc/nginx/nginx.conf``` instead.
-
----
 
 Add the following to your "**server**" block:
 ```
@@ -35,9 +26,38 @@ location /images {
 }
 ```
 
-Then restart nginx ```systemctl restart nginx```
+---
 
-This will allow the javascript to access all image filenames.
+#### Arch
+
+Make a directory in ```/var/www/html``` named "**images**"
+
+Execute the commands
+```
+git clone https://github.com/skep1337/dynamic-gallery.git /var/www/html/images
+cd /var/www/html/images
+chmod +x *.sh
+mkdir -p content/thumbnails
+```
+You may need elevated permissions for some of these.
+
+Now edit the file ```/etc/nginx/nginx.conf```
+
+In the http section find the server section.
+Here change location / block to
+```
+location / {
+    root /var/www/html/images;
+    autoindex on;
+    index index.html;
+}
+```
+
+---
+
+Restart nginx ```systemctl restart nginx```
+
+The autoindex will allow the javascript to access all image filenames.
 
 ## Setup
 
