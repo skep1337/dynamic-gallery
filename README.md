@@ -32,9 +32,7 @@ location /images {
 
 #### Arch
 
-You may need elevated permissions for some of these.
-
-Now edit the file ```/etc/nginx/nginx.conf```
+Edit the file ```/etc/nginx/nginx.conf```
 
 In the '**http**' section find the '**server**' section.
 Here, remove the '**location /**' block and replace with 
@@ -58,6 +56,8 @@ Restart nginx ```systemctl restart nginx```
 The autoindex will allow the javascript to access all image filenames.
 
 ## Setup
+
+You may need elevated permissions for some of these.
 
 Execute the commands
 ```
@@ -83,6 +83,8 @@ Run **compress.sh**. This will use ffmpeg to resize and compress any images in t
 ```sh compress.sh```
 
 I recommend screening the **dirmonitor.sh** to have it run in the background. 
+
+**You will need to run the script as root**
 
 ```screen sh dirmonitor.sh```
 
