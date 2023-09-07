@@ -15,7 +15,7 @@ screen
 
 Make a directory in ```/var/www/html``` named '**images**' (this is where the **html**, **css** and **js** should be)
 
-```mkdir /var/www/html/images```
+```mkdir -p /var/www/html/images```
 
 #### Ubuntu/Debian
 
@@ -63,7 +63,7 @@ Execute the commands
 ```
 git clone https://github.com/skep1337/dynamic-gallery.git /var/www/html/images
 cd /var/www/html/images
-chmod +x *.sh
+chmod 777 *.sh
 mkdir -p content/thumbnails
 ```
 
